@@ -1,3 +1,5 @@
+from random import choice
+
 class Player:
     """
         A class to represent a player.
@@ -14,23 +16,25 @@ class Player:
             xxx
     """
 
-    def __init__(self, name, cards=[], turn_count=0, number_of_cards=0, history=[]):
+    def __init__(self, name):
         self.name = name
-        self.cards = cards
-        self.turn_count = turn_count
-        self.number_of_cards = number_of_cards
-        self.history = history
+        self.cards = []
+        self.turn_count = 0
+        self.number_of_cards = 0
+        self.history = []
 
     def play(self):
         """
             xx
         """
-        random_card = random.choice(self.cards)
+        random_card = choice(self.cards)
+        self.cards.remove(random_card)
         self.turn_count += 1
         self.history.append(random_card)
-        print(f"{self.name} {self.turn_count} played: {self.turn_count} {random_card.icon}")
+        # print(f"{self.name} {self.turn_count} played: {random_card.value} {random_card.icon}")
         return random_card
 
     def draw(self, card):
         if card is not None:
             self.cards.append(card)
+            # print(f"Player number {self.name} card {len(self.cards)}")

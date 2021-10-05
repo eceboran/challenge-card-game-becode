@@ -1,6 +1,6 @@
-from utils import card
 from random import shuffle
 
+from utils import card
 
 class Deck:
     """
@@ -20,7 +20,7 @@ class Deck:
         self.fill_deck()
 
     def fill_deck(self):
-        colors = ["red", "blue"]
+        colors = ["red", "black"]
         icons = [
             "♥",
             "♦",
@@ -40,6 +40,8 @@ class Deck:
 
     def shuffle(self):
         shuffle(self.cards)
+        # for current_card in self.cards:
+            # print(f"Card {current_card.value} {current_card.icon}")
         # for mycard in self.cards:
         # print(mycard.icon + mycard.value)
 
@@ -54,18 +56,24 @@ class Deck:
         else:
             return None
 
-    def distribute(self, Players, deal_size: int = 0):
+    def distribute(self, players, deal_size: int = 0):
         """
             Distribute cards to the players.
             As long as there are cards left.
         """
         # If the deal size is specified as 0 or not specified, distribute all cards to the players
         if deal_size == 0:
-            deal_size = len(self.cards) // len(Players)
+            deal_size = len(self.cards) // len(players)
 
+        # print(deal_size)
+        # print(len(players))
         for card_in_deal in range(deal_size):
-            for player in range(len(Players)):
+            # print(card_in_deal)
+            for player_number in range(len(players)):
+                # print(f"Player number {player_number}")
                 # Draw a card from the deck
                 card_drawn = self.draw()
                 # Add the card to the player's hand
-                Players[player].draw(card_drawn)
+                # print(f"Player number {players[player_number].name} will draw card {card_in_deal}")
+                players[player_number].draw(card_drawn)
+                # print(len(players[player_number].cards))

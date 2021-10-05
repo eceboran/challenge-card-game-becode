@@ -34,3 +34,6 @@ class Card(Symbol):
         super().__init__(color, icon)
         self.value = value
 
+    @staticmethod
+    def list_card_names(cards) -> list:
+        return [f"{x.value}{x.icon}" for x in cards]
