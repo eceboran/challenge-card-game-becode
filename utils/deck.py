@@ -21,13 +21,10 @@ class Deck:
 
     def fill_deck(self):
         colors = ["red", "black"]
-        icons = [
-            "♥",
-            "♦",
-            "♣",
-            "♠",
-        ]  # ["\u2665","\u2666","\u2663","\u2660","♥"] # ["♥", "♦", "♣", "♠"]
-        values = "A, 2, 3, 4, 5, 6, 7, 8, 9, 10, J, Q, K".split(", ")
+        # ["\u2665","\u2666","\u2663","\u2660","♥"] # ["♥", "♦", "♣", "♠"]
+        # values = "A, 2, 3, 4, 5, 6, 7, 8, 9, 10, J, Q, K".split(", ")
+        values = card.Card.values
+        icons = card.Card.icons
 
         self.cards = []
         for icon_number, icon in enumerate(icons):
