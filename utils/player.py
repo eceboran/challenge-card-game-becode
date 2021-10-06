@@ -27,13 +27,15 @@ class Player:
         Adds a card to the player's hand
     """
 
-    def __init__(self, name: str):
+    def __init__(self, name: str, isHuman: bool):
         """
         Initializes an instance of the class Player
         :param name: A string for the name of the player
+        :param isHuman: A boolean that is True for human players
         """
         # Assign the name of the player
         self.name = name
+        self.isHuman = isHuman
         # Initialize the attributes cards, turn_count, number_of_cards and history
         self.cards = []
         self.turn_count = 0
@@ -46,12 +48,13 @@ class Player:
         """
         return f"Player {self.name} (currently has {self.number_of_cards} cards)"
 
-    def play(self) -> "Card":
+    def play(self, played_card: 'Card' = None) -> "Card":
         """
         Returns a randomly picked card from the player's hand
         :return: An instance of Card to be played
         """
-        played_card = choice(self.cards)  # randomly select a card from cards
+        if played_card is None:
+            played_card = choice(self.cards)  # randomly select a card from cards
         self.cards.remove(played_card)  # remove the selected card from cards
         self.turn_count += 1  # increment the turn count
         self.number_of_cards -= 1  # decrement the number of cards

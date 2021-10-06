@@ -109,3 +109,34 @@ class Card(Symbol):
                  Elements are in the format "<card value><card icon>"
         """
         return [f"{x.value}{x.icon}" for x in card_list]
+
+    def printout_single_card(current_card):
+        card_printout = []
+        card_printout.append("┌───────┐")
+        card_printout.append("│{0:<2}     │".format(current_card.value))
+        card_printout.append("│       │")
+        card_printout.append("│   {0:^1}   │".format(current_card.icon))
+        card_printout.append("│       │")
+        card_printout.append("│     {0:>2}│".format(current_card.value))
+        card_printout.append("└───────┘")
+
+        return card_printout
+
+    @staticmethod
+    def print_cards(card_group):
+        """
+        Draw multiple cards side by side
+        :return:
+        """
+        printouts = []
+        for current_card in card_group:
+            # xx = Card.printout_single_card(current_card)
+            # print(xx)
+            printouts.append(Card.printout_single_card(current_card))
+        print(len(printouts[0]))
+
+        no_of_lines = len(printouts[0])
+        for line in range(no_of_lines):
+            for current_card in range(len(card_group)):
+                print(printouts[current_card][line], end="")
+            print("\r")

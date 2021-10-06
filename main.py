@@ -5,13 +5,29 @@ from utils import game
 if __name__ == "__main__":
     print("The game will start")
 
-    # Define the player names
-    player_names = ["A", "B", "C", "D"]
+    # The player enters their name
+    # human_player_name = input("Please enter your name: ")
+    human_player_name = "Ece"
+    print(human_player_name)
+
+    # no_of_players = input("Please enter the total number of players: ")
+    no_of_players = '4'
+    no_of_players = int(no_of_players)
+
+    # Define the player names for the computer players
+    player_names = [human_player_name]
+    for new_player in range(no_of_players-1):
+        player_names.append(f"Player {new_player+1}")
 
     # Create players
     players = []
     for player_name in player_names:
-        players.append(player.Player(player_name))
+        print(player_name)
+        if player_name == human_player_name:
+            isHuman = True
+        else:
+            isHuman = False
+        players.append(player.Player(player_name, isHuman))
 
     # Construct the board
     current_board = game.Board(players)

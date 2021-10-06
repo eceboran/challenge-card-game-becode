@@ -1,6 +1,6 @@
 from random import shuffle
 from typing import List
-
+from re import search
 from utils import card
 
 
@@ -74,7 +74,31 @@ class Board:
             self.active_cards = []
             # Each player plays a card
             for current_player in self.players:
-                played_card = current_player.play()  # card chosen by the player
+                if current_player.isHuman:
+                    # Display the active cars
+                    print("Active cards:\n")
+                    if len(self.active_cards) > 0:
+                        card.Card.print_cards(self.active_cards)
+                    # Display the player's cards
+                    print("Your cards:\n")
+                    card.Card.print_cards(current_player.cards)
+                    selected_card_name = input("Choose a card to play: ")
+                    # selected_card_name = "K of Hearts"
+                    m = search("(?P<value>\w+) of (?P<icon>\w+)",selected_card_name)
+                    selected_icon = m.group("icon")
+                    selected_value = m.group("value")
+                    if selected_icon.lower() == 'hearts':
+                        selected_icon = "♥"
+                    elif selected_icon.lower() == 'diamonds':
+                        selected_icon = "♦"
+                    elif selected_icon.lower() == 'clubs':
+                        selected_icon = "♣"
+                    elif selected_icon.lower() == 'spades':
+                        selected_icon = "♠"
+                    selected_card = [x for x in current_player.cards if (x.value == selected_value) & (x.icon == selected_icon)][0]
+                    played_card = current_player.play(selected_card)  # card chosen by the player
+                else:
+                    played_card = current_player.play()  # card chosen by the computer
                 self.active_cards.append(played_card)
             # At the end of the turn, display a message
             print(
