@@ -8,7 +8,6 @@ When the game is run:
 - The cards are split evenly between each player
 - At every turn, each player plays a single card, until there are no cards left.
 
-
 ## Installation
 Download the repository from GitHub using:
 ```python
@@ -24,6 +23,9 @@ In the terminal, navigate to the folder that contains main.py. To start the prog
 python main.py
 ```
 Alternatively, you can open main.py in an IDE and run it there.
+
+The branch main of the repository contains the must-have version with the basic funcionalities.
+
 
 ## Repository structure
 
