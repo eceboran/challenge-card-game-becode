@@ -2,10 +2,15 @@
 
 ## Description
 This is the basis for a playing card game for the online casino `WeTakeYourMoney`.
+
 When the game is run:
+
 A deck of cards (52 cards) are created
+
 The cards are split evenly between each player
+
 At every turn, each player plays a single card, until there are no cards left.
+
 
 ## Installation
 Download the repository from GitHub using:
@@ -17,8 +22,7 @@ The following libraries are required to run the program:
 - random
 
 ## Usage
-In the terminal, navigate to the folder that contains main.py.
-To start the program, run:
+In the terminal, navigate to the folder that contains main.py. To start the program, run:
 ```python
 python main.py
 ```
@@ -51,6 +55,7 @@ Contains utility files for the card game.
 
 ## Personal situation
 This project is my first challenge at [BeCode](https://becode.org/), following three weeks of learning basic and advanced Python concepts.
+
 
 
 This project uses Black: The Uncompromising Code Formatter
