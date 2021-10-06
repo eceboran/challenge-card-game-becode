@@ -3,7 +3,7 @@ from typing import List
 
 class Symbol:
     """
-    A class to represent a playing card symbol.
+    A class to represent a playing card symbol
     ...
     Attributes
     ----------
@@ -28,7 +28,7 @@ class Symbol:
 
     def __init__(self, icon: str):
         """
-        Initialize an instance of the class Symbol and assign the correct color to it
+        Initializes an instance of the class Symbol and assign the correct color to it
         :param icon: A string for the icon of the symbol from the list [♥, ♦, ♣, ♠]
         """
         # Assign attribute icon
@@ -38,14 +38,14 @@ class Symbol:
 
     def __str__(self):
         """
-        Print the symbol and its color
+        Prints the symbol and its color
         """
-        return f"{self.icon} symbol ({self.color})".capitalize()
+        return f"{self.icon} symbol ({self.color})"
 
     @classmethod
     def assign_color(cls, icon: str):
         """
-        Assign a color to the Symbol instance according to its icon
+        Assigns a color to the Symbol instance according to its icon
         :param icon: A string for the icon of the symbol
             from the list [♥, ♦, ♣, ♠]
         :return: A string for the color of the symbol (red or black)
@@ -56,21 +56,21 @@ class Symbol:
 
 class Card(Symbol):
     """
-        A class to represent a playing card. Inherits from class Symbol.
-        ...
-        Attributes
-        ----------
-        value: str
-            value of the symbol ("A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", or "K")
-        icon : str
-            icon of the symbol (♥, ♦, ♣, or ♠) (unicode: ["\u2665","\u2666","\u2663","\u2660"])
-        color : str
-            color of the symbol (red or black)
+    A class to represent a playing card. Inherits from class Symbol
+    ...
+    Attributes
+    ----------
+    value: str
+        value of the symbol ("A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", or "K")
+    icon : str
+        icon of the symbol (♥, ♦, ♣, or ♠) (unicode: ["\u2665","\u2666","\u2663","\u2660"])
+    color : str
+        color of the symbol (red or black)
 
-        Methods
-        -------
-        list_card_names(card_list: List['Card'])
-            Returns a list of strings for the values and icons given a list of card instances
+    Methods
+    -------
+    list_card_names(card_list: List['Card'])
+        Returns a list of strings for the values and icons given a list of card instances
     """
 
     icons = [
@@ -83,7 +83,7 @@ class Card(Symbol):
 
     def __init__(self, value: str, icon: str):
         """
-        Initialize an instance of the class Card
+        Initializes an instance of the class Card
         :param value: A string for the value of the symbol
             from the list ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", or "K"]
         :param icon: A string for the icon of the symbol
@@ -96,16 +96,16 @@ class Card(Symbol):
 
     def __str__(self):
         """
-        Print the symbol value, icon and color
+        Prints the symbol value, icon and color
         """
-        return f"{self.value} of {self.icon} ({self.color})".capitalize()
+        return f"{self.value}{self.icon}"
 
     @staticmethod
     def list_card_names(card_list: List["Card"]) -> list:
         """
-            Return a list of card names and icons from a list of cards
-            :param card_list: An list of instances of Card
-            :return: A list of strings with the same length as card_list
-                     Elements are in the format "<card value><card icon>"
+        Returns a list of card names and icons from a list of cards
+        :param card_list: An list of instances of Card
+        :return: A list of strings with the same length as card_list
+                 Elements are in the format "<card value><card icon>"
         """
         return [f"{x.value}{x.icon}" for x in card_list]
