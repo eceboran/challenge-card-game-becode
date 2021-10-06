@@ -24,7 +24,7 @@ python main.py
 ```
 Alternatively, you can open main.py in an IDE and run it there.
 
-The branch main of the repository contains the must-have version with the basic funcionalities.
+The branch `main` of the repository contains the must-have version with the basic funcionalities.
 
 
 ## Repository structure
