@@ -6,12 +6,12 @@ if __name__ == "__main__":
     print("The game will start")
 
     # The player enters their name
-    # human_player_name = input("Please enter your name: ")
-    human_player_name = "Ece"
-    print(human_player_name)
+    human_player_name = input("Please enter your name: ")
+    # human_player_name = "Ece"
+    # print(human_player_name)
 
-    # no_of_players = input("Please enter the total number of players: ")
-    no_of_players = '4'
+    no_of_players = input("Please enter the total number of players: ")
+    # no_of_players = '4'
     no_of_players = int(no_of_players)
 
     # Define the player names for the computer players
