@@ -2,6 +2,7 @@ from random import shuffle
 
 from utils import card
 
+
 class Deck:
     """
         A class to represent a deck.
@@ -30,7 +31,7 @@ class Deck:
         for icon_number, icon in enumerate(icons):
             color = colors[icon_number // 2]
             for value in values:
-                self.cards.append(card.Card(color, icon, value))
+                self.cards.append(card.Card(value, icon))
 
         # for mycard in self.cards:
         # print(mycard.icon + mycard.value)
@@ -38,7 +39,7 @@ class Deck:
     def shuffle(self):
         shuffle(self.cards)
         # for current_card in self.cards:
-            # print(f"Card {current_card.value} {current_card.icon}")
+        # print(f"Card {current_card.value} {current_card.icon}")
         # for mycard in self.cards:
         # print(mycard.icon + mycard.value)
 

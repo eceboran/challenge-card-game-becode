@@ -1,4 +1,5 @@
-from random import choice
+from random import choice as choice
+
 
 class Player:
     """
@@ -6,26 +7,46 @@ class Player:
         ...
         Attributes
         ----------
-        cards : List[Card]
-            color of the symbol
-        turn_count : str
-            icon of the symbol
-        number_of_cards
-            xxx
-        history
-            xxx
+        name : str
+            name of the player
+        cards: List['Card']
+            list of cards the player has in their hand
+        turn_count : int
+            number of the last turn played by the player
+        number_of_cards : int
+            number of cards that the player has
+        history : List['Card']
+            list of all cards played by the player in previous turns
+
+        Methods
+        -------
+        play(icon: str)
+            Assigns the correct color to the symbol
     """
 
-    def __init__(self, name):
+    def __init__(self, name: str):
+        """
+            Initialize an instance of the class Player
+            :param name: A string for the name of the player
+        """
+        # Assign the name of the player
         self.name = name
+        # Initialize the attributes cards, turn_count, number_of_cards and history
         self.cards = []
         self.turn_count = 0
         self.number_of_cards = 0
         self.history = []
 
+    def __str__(self):
+        """
+        Print the name of the player and the number of cards they have
+        """
+        return f"Player {self.name} (currently has {self.number_of_cards} cards)"
+
     def play(self):
         """
-            xx
+            Returns a randomly picked card from the player's hand
+            :return: An instance of the Card
         """
         random_card = choice(self.cards)
         self.cards.remove(random_card)
